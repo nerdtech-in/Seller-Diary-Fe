@@ -8,7 +8,7 @@ export default function Header({
             className='h-[8%]  pt-3 flex justify-center items-center'
         >
             <p
-                className='text-2xl  tracking-widest font-Raleway  text-gray-900 dark:text-white'
+                className='text-2xl  tracking-widest font-semibold font-Raleway  text-icon '
             >{title}</p>
         </div>
     )

@@ -2,6 +2,7 @@ import React from "react"
 import { AiOutlineOrderedList, AiOutlineHome, AiOutlineUser } from "react-icons/ai";
 import { MdOutlineRestaurantMenu } from "react-icons/md";
 import { useLocation, useNavigate } from "react-router-dom";
+import { CiReceipt } from "react-icons/ci";
 export default function Tab() {
     const location = useLocation()
     const navigate = useNavigate()
@@ -56,17 +57,17 @@ export default function Tab() {
             </button>
             <button
                 onClick={() => {
-                    navigate('/profile')
+                    navigate('/bill')
                 }}
                 className={`flex flex-col justify-center items-center`}
             >
-                <AiOutlineUser
+                <CiReceipt
                     size={30}
-                    className={location?.pathname === '/profile' ? `text-primary` : `text-icon`}
+                    className={location?.pathname === '/bill' ? `text-primary` : `text-icon`}
                 />
                 <p
-                    className={`${location?.pathname === '/profile' ? `text-black font-medium` : `text-icon`} text-sm text-opacity-80 font-Raleway`}>
-                    Profile
+                    className={`${location?.pathname === '/bill' ? `text-black font-medium` : `text-icon`} text-sm text-opacity-80 font-Raleway`}>
+                    Payment
                 </p>
             </button>
         </div>

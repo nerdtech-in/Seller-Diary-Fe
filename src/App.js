@@ -4,7 +4,7 @@ import Index from "./Navigation/Index";
 export default function App() {
   return (
     <div
-    className=" dark:bg-black h-screen"
+    className="h-screen w-screen bg-white"
     >
       <Index/>
     </div>
