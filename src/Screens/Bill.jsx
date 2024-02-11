@@ -5,7 +5,7 @@ import Tab from '../Components/Tab'
 export default function Bill() {
     return (
         <div>
-            <Header title={"Payment"} />
+            <Header title={"Payments"} />
             <Tab />
         </div>
     )

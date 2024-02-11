@@ -67,7 +67,7 @@ export default function Tab() {
                 />
                 <p
                     className={`${location?.pathname === '/bill' ? `text-black font-medium` : `text-icon`} text-sm text-opacity-80 font-Raleway`}>
-                    Payment
+                    Payments
                 </p>
             </button>
         </div>

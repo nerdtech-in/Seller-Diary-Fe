@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily:{
-        Raleway:"Raleway"
+        Raleway:"Poppins"
       },
       colors:{
         primary:"#eb6c14",
