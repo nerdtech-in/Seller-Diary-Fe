@@ -10,6 +10,10 @@ body {
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'title';
+  src: local('title'), url(./Assets/CALVINN.TTF) format('truetype');
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

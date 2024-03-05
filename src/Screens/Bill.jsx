@@ -1,12 +1,13 @@
 import React from 'react'
 import Header from '../Components/Header'
-import Tab from '../Components/Tab'
+import BottomTab from '../Components/BottomTab';
+
 
 export default function Bill() {
     return (
         <div>
             <Header title={"Payments"} />
-            <Tab />
+            <BottomTab />
         </div>
     )
 }

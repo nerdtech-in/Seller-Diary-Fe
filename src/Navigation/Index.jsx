@@ -6,6 +6,7 @@ import Menu from '../Screens/Menu'
 import Details from '../Screens/Details'
 import Bill from '../Screens/Bill'
 import Cart from '../Screens/Cart'
+import Info from '../Screens/Info'
 
 export default function Index() {
   return (
@@ -16,6 +17,7 @@ export default function Index() {
       <Route path='/details' element={<Details />} />
       <Route path='/bill' element={<Bill />} />
       <Route path='/cart' element={<Cart />} />
+      <Route path='/info' element={<Info />} />
     </Routes>
   )
 }

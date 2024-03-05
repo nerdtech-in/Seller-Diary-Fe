@@ -1,14 +1,14 @@
 import React from "react"
-import { AiOutlineOrderedList, AiOutlineHome, AiOutlineUser } from "react-icons/ai";
+import { AiOutlineOrderedList, AiOutlineHome } from "react-icons/ai";
 import { MdOutlineRestaurantMenu } from "react-icons/md";
 import { useLocation, useNavigate } from "react-router-dom";
 import { CiReceipt } from "react-icons/ci";
-export default function Tab() {
+export default function BottomTab() {
     const location = useLocation()
     const navigate = useNavigate()
     return (
         <div
-            className={`fixed transition-all lg:hidden ease-linear bg-white bottom-0 w-full h-[11.5%] border-t-2 flex justify-evenly items-center`}
+            className={`fixed transition-all lg:hidden font-Title bg-white bottom-0 w-full h-[11.5%] border-t-[1px] flex justify-evenly z-50 items-center`}
         >
             <button
                 onClick={() => {
@@ -21,7 +21,7 @@ export default function Tab() {
                     className={location?.pathname === '/' ? `text-primary` : `text-icon`}
                 />
                 <p
-                    className={`${location?.pathname === '/' ? `text-black font-medium` : `text-icon`} text-sm text-opacity-80 font-Raleway`}>
+                    className={`${location?.pathname === '/' ? `text-primary font-semibold` : `text-icon`} text-sm text-opacity-80 font-Title`}>
                     Home
                 </p>
             </button>
@@ -36,7 +36,7 @@ export default function Tab() {
                     className={location?.pathname === '/menu' ? `text-primary` : `text-icon`}
                 />
                 <p
-                    className={`${location?.pathname === '/menu' ? `text-black font-medium` : `text-icon`} text-sm text-opacity-80 font-Raleway`}>
+                    className={`${location?.pathname === '/menu' ? `text-primary font-semibold` : `text-icon`} text-sm text-opacity-80 font-Title`}>
                     Menu
                 </p>
             </button>
@@ -51,7 +51,7 @@ export default function Tab() {
                     className={location?.pathname === '/orders' ? `text-primary` : `text-icon`}
                 />
                 <p
-                    className={`${location?.pathname === '/orders' ? `text-black font-medium` : `text-icon`} text-sm text-opacity-80 font-Raleway`}>
+                    className={`${location?.pathname === '/orders' ? `text-primary font-semibold` : `text-icon`} text-sm text-opacity-80 font-Title`}>
                     Orders
                 </p>
             </button>
@@ -66,7 +66,7 @@ export default function Tab() {
                     className={location?.pathname === '/bill' ? `text-primary` : `text-icon`}
                 />
                 <p
-                    className={`${location?.pathname === '/bill' ? `text-black font-medium` : `text-icon`} text-sm text-opacity-80 font-Raleway`}>
+                    className={`${location?.pathname === '/bill' ? `text-primary font-semibold` : `text-icon`} text-sm text-opacity-80 font-Title`}>
                     Payments
                 </p>
             </button>

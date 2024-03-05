@@ -10,6 +10,7 @@ export default function Details() {
         };
         setFp();
     }, []);
+    console.log(fpHash)
     const [data, setData] = React.useState({
         name: '',
         phone: ''

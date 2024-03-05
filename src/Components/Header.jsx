@@ -7,14 +7,14 @@ export default function Header({
     const navigate = useNavigate()
     return (
         <div
-            className='h-[8%]  pt-3 flex justify-around items-center'
+            className='h-[8%] w-full bg-white  py-3 flex justify-around items-center sticky top-0'
         >
             <div
             className='h-[30px] w-[30px]'
             />
 
             <p
-                className='text-2xl  tracking-widest font-semibold font-Raleway  text-icon '
+                className='text-2xl  tracking-widest font-Title font-black  text-black '
             >{title}</p>
             <BsBag
                 onClick={()=>{
