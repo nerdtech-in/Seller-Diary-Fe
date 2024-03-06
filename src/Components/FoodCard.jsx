@@ -9,7 +9,7 @@ export default function FoodCard({
     return (
         <div
 
-            className='w-full mt-2 py-2 px-2 rounded-md font-Title'
+            className='w-full mt-2 py-2 px-2 rounded-md font-Title '
         >
             <div
                 className='flex w-full justify-between items-center'>
