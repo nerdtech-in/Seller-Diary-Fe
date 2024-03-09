@@ -54,9 +54,10 @@ export default function Info() {
                         </p>
                     </button>
                 </div>
+                ₹
                 <button
                     className=' bg-primary px-8 rounded-md py-2 text-white font-black tracking-widest'>
-                    {`Add to cart ₹ ${count*state?.price}`}
+                    {`Add to cart  ${count*state?.price}`}
                 </button>
             </div>
         </div>

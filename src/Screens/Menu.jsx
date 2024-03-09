@@ -13,7 +13,7 @@ export default function Menu() {
   const [activeTab, setActiveTab] = React.useState("garam");
   const data = [
     {
-      label: "Garma-गरम",
+      label: `Garma-\nगरम`,
       value: "garam",
       desc: [
         {
@@ -27,7 +27,7 @@ export default function Menu() {
       ],
     },
     {
-      label: "Thanda-ठंडा",
+      label: `Thanda-\nठंडा`,
       value: "brunch",
       desc: [
         {
@@ -65,7 +65,7 @@ export default function Menu() {
     },
 
     {
-      label: "Saath-साथ",
+      label: `Saath-साथ`,
       value: "saath",
       desc: [
         {
@@ -113,7 +113,7 @@ export default function Menu() {
       <div className="w-full pt-4 p-0 md:p-6 pl-0 md:pl-16 font-Raleway">
         <Tabs value={activeTab}>
           <TabsHeader
-            className="rounded-none border-none bg-transparent p-0 px-2 w-full"
+            className="rounded-none border-none bg-transparent p-0 px-[24px] w-full"
             indicatorProps={{
               className:
                 "bg-transparent border-b-2 border-gray-900 shadow-none border-primary rounded-none",
@@ -142,6 +142,7 @@ export default function Menu() {
                 {desc.map((item, index) => (
                   <>
                     <p
+                      key={index}
                       className="text-font-color font-Title text-xl text-primary bg-page-bg p-2 md:p-10 rounded"
                     >
                       {item?.title}

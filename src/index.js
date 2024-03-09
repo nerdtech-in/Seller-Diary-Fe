@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { HashRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './Store';
+import { ToastContainer } from 'react-toastify';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,6 +14,7 @@ root.render(
     <Provider store={store}>
       <HashRouter>
         <App />
+        <ToastContainer />
       </HashRouter>
     </Provider>
   </React.StrictMode>

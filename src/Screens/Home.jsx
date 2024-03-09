@@ -5,7 +5,7 @@ export default function Home() {
   
   return (
     <div>
-      <Header title={`Chai \n टपरी`}/>
+      <Header title={`Chai Tapri`}/>
       <BottomTab/>
     </div>
   )
