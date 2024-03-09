@@ -12,7 +12,6 @@ export default function Header({
             <div
             className='h-[30px] w-[30px]'
             />
-
             <p
                 className='text-2xl  tracking-widest font-Title font-black  text-black '
             >{title}</p>
