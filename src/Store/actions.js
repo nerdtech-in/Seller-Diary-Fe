@@ -54,6 +54,10 @@ export const getMenu = (path, setData, setLoading,token,setActiveTab) => {
         }).then((res) => {
             setData(res.data)
             setActiveTab(res.data?.categories[0]?.name)
+            dispatch({
+                type: 'OUTLET',
+                payload: res?.data,
+            })
             setLoading(false);
         }).catch((err) => {
             console.log(err)
@@ -77,8 +81,34 @@ export const getOrders = () => {
     }
 }
 
-export const sendOrder = () => {
+export const sendOrder = (outlet,cart,setLoading,token,navigate) => {
+    var product = []
+    cart.map((item)=>{
+        product.push({
+            "item":item?.id,
+            "quantity":item?.quantity,
+        })
+    })
+    var data = {}
+    data['table_id'] = outlet?.table_id
+    data['products'] = product
     return async dispatch => {
-
+        console.log(data)
+        await axios.post(baseURL + '/order/',data, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then((res) => {
+            console.log(res.data)
+            dispatch({
+                type: 'EMPTY_CART',
+                payload: [],
+              })
+            navigate(-1)
+            setLoading(false);
+        }).catch((err) => {
+            console.log(err)
+            setLoading(false);
+        })
     }
 }

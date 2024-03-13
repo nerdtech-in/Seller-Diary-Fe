@@ -2,6 +2,7 @@ import { toast } from 'react-toastify';
 
 const initialState = {
     userInfo: null,
+    outlet: {},
     access: null,
     cart: [],
     visitorId: null
@@ -13,6 +14,11 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 access: action.payload,
+            };
+        case "OUTLET":
+            return {
+                ...state,
+                outlet: action.payload,
             };
         case "ID":
             return {
@@ -40,7 +46,6 @@ export default (state = initialState, action) => {
                     progress: undefined,
                     theme: "light",
                 });
-                alert("ADDED")
                 return {
                     ...state,
                     cart: d
@@ -58,7 +63,6 @@ export default (state = initialState, action) => {
                     progress: undefined,
                     theme: "light",
                 });
-                alert("ADDED")
                 return {
                     ...state,
                     cart: d,

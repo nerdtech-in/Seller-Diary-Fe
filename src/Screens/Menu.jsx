@@ -21,6 +21,7 @@ export default function Menu() {
   const dispatch = useDispatch()
   React.useEffect(()=>{
     dispatch(getMenu(path?.pathname,setData,setLoading,token,setActiveTab))
+    console.log(data);
   },[dispatch])
   return (
     <div>

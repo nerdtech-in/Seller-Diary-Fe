@@ -3,9 +3,12 @@ import { AiOutlineOrderedList, AiOutlineHome } from "react-icons/ai";
 import { MdOutlineRestaurantMenu } from "react-icons/md";
 import { useLocation, useNavigate } from "react-router-dom";
 import { CiReceipt } from "react-icons/ci";
+import { useSelector } from "react-redux";
 export default function BottomTab() {
     const location = useLocation()
     const navigate = useNavigate()
+    const outlet = useSelector(state => state.Reducers.outlet)
+    console.log(outlet)
     return (
         <div
             className={`fixed transition-all lg:hidden font-Title bg-white bottom-0 w-full h-[11.5%] border-t-[1px] flex justify-evenly z-50 items-center`}
@@ -27,16 +30,16 @@ export default function BottomTab() {
             </button>
             <button
                 onClick={() => {
-                    navigate('/menu')
+                    navigate(`/menu/${outlet?.slug}/${outlet?.outlet?.slug}/${outlet?.table_id}`)
                 }}
                 className={`flex flex-col justify-center items-center`}
             >
                 <MdOutlineRestaurantMenu
                     size={30}
-                    className={location?.pathname === '/menu' ? `text-primary` : `text-icon`}
+                    className={location?.pathname === `/menu/${outlet?.slug}/${outlet?.outlet?.slug}/${outlet?.table_id}` ? `text-primary` : `text-icon`}
                 />
                 <p
-                    className={`${location?.pathname === '/menu' ? `text-primary font-semibold` : `text-icon`} text-sm text-opacity-80 font-Title`}>
+                    className={`${location?.pathname === `/menu/${outlet?.slug}/${outlet?.outlet?.slug}/${outlet?.table_id}` ? `text-primary font-semibold` : `text-icon`} text-sm text-opacity-80 font-Title`}>
                     Menu
                 </p>
             </button>
