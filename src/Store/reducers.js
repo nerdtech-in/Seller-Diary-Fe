@@ -28,9 +28,8 @@ export default (state = initialState, action) => {
             const existingProduct = state.cart.find((item) => item.id === action.payload.id);
             if (existingProduct) {
                 var d = state.cart.map((item) =>
-                    item.id === existingProduct.id ? { ...item, quantity: item.quantity + 1 } : item
+                    item.id === existingProduct.id ? { ...item } : item
                 );
-                localStorage.setItem("cart", JSON.stringify(d));
                 toast.success('Added to Cart', {
                     position: "top-center",
                     autoClose: 1000,
@@ -41,14 +40,14 @@ export default (state = initialState, action) => {
                     progress: undefined,
                     theme: "light",
                 });
+                alert("ADDED")
                 return {
                     ...state,
                     cart: d
 
                 };
             } else {
-                var d = [...state.cart, { ...action.payload, quantity: 1 }]
-                localStorage.setItem("cart", JSON.stringify(d));
+                var d = [...state.cart, { ...action.payload }]
                 toast.success('Added to Cart', {
                     position: "top-center",
                     autoClose: 1000,
@@ -59,11 +58,27 @@ export default (state = initialState, action) => {
                     progress: undefined,
                     theme: "light",
                 });
+                alert("ADDED")
                 return {
                     ...state,
                     cart: d,
                 };
             }
+        case "REMOVE_FROM_CART":
+            return {
+                ...state,
+                cart: state.cart.filter((item) => item.id !== action.payload),
+            };
+        case "EMPTY_CART":
+            return {
+                ...state,
+                cart: action.payload,
+            };
+        case "CHANGE_QUANTITY":
+            return {
+                ...state,
+                cart: action.payload,
+            };
         default:
             return state;
     }

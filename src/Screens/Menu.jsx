@@ -9,109 +9,24 @@ import {
   TabPanel,
 } from "@material-tailwind/react";
 import FoodCard from '../Components/FoodCard';
+import { useDispatch, useSelector } from 'react-redux';
+import { getMenu } from '../Store/actions';
+import { useLocation } from 'react-router-dom';
 export default function Menu() {
-  const [activeTab, setActiveTab] = React.useState("garam");
-  const data = [
-    {
-      label: `Garma-\nगरम`,
-      value: "garam",
-      desc: [
-        {
-          title: "Pizza",
-          product: []
-        },
-        {
-          title: "Burger",
-          product: []
-        },
-      ],
-    },
-    {
-      label: `Thanda-\nठंडा`,
-      value: "brunch",
-      desc: [
-        {
-          title: "Pizza",
-          product: [
-            {
-              name: "Margherita",
-              price: "12.00"
-            },
-            {
-              name: "Cheese",
-              price: "10.00"
-            },
-            {
-              name: "Garlic",
-              price: "15.00"
-            },
-
-          ]
-        },
-        {
-          title: "Burger",
-          product: [
-            {
-              name: "Veg Burger",
-              price: "10.00"
-            },
-            {
-              name: "Cheese Burger",
-              price: "18.00"
-            }
-          ]
-        },
-      ],
-    },
-
-    {
-      label: `Saath-साथ`,
-      value: "saath",
-      desc: [
-        {
-          title: "Chai",
-          product: []
-        },
-        {
-          title: "Coffee",
-          product: []
-        },
-      ],
-    },
-    {
-      label: "Khana-खाना",
-      value: "khana",
-      desc: [
-        {
-          title: "Chai",
-          product: []
-        },
-        {
-          title: "Coffee",
-          product: []
-        },
-      ],
-    },
-    {
-      label: "Kabhi-कभी",
-      value: "kabhi",
-      desc: [
-        {
-          title: "Chai",
-          product: []
-        },
-        {
-          title: "Coffee",
-          product: []
-        },
-      ],
-    }
-  ];
+  const [activeTab, setActiveTab] = React.useState('FastFood');
+  const [loading,setLoading] = React.useState(false)
+  const [data,setData] =React.useState([])
+  const path = useLocation()
+  const token = useSelector(state=>state.Reducers.access)
+  const dispatch = useDispatch()
+  React.useEffect(()=>{
+    dispatch(getMenu(path?.pathname,setData,setLoading,token,setActiveTab))
+  },[dispatch])
   return (
     <div>
       <Header title={"Menu"} />
       <div className="w-full pt-4 p-0 md:p-6 pl-0 md:pl-16 font-Raleway">
-        <Tabs value={activeTab}>
+       <Tabs value={activeTab}>
           <TabsHeader
             className="rounded-none border-none bg-transparent p-0 px-[24px] w-full"
             indicatorProps={{
@@ -119,36 +34,36 @@ export default function Menu() {
                 "bg-transparent border-b-2 border-gray-900 shadow-none border-primary rounded-none",
             }}
           >
-            {data.map(({ label, value }) => (
+            {data?.categories?.map(({ name }) => (
               <Tab
-                key={value}
-                value={value}
-                onClick={() => setActiveTab(value)}
+                key={name}
+                value={name}
+                onClick={() => setActiveTab(name)}
                 className={
-                  activeTab === value ? "text-primary font-Title text-sm" : "text-black text-sm font-Title"
+                  activeTab === name ? "text-primary font-Title text-sm" : "text-black text-sm font-Title"
                 }
               >
-                {label}
+                {name}
               </Tab>
             ))}
           </TabsHeader>
           <TabsBody className="md:mt-4 w-full ">
-            {data.map(({ value, desc }) => (
+            {data?.categories?.map(({ name, subcategories }) => (
               <TabPanel
-                key={value}
-                value={value}
+                key={name}
+                value={name}
                 className="text-font-color bg-page-bg p-4 md:p-10 rounded"
               >
-                {desc.map((item, index) => (
+                {subcategories?.map((item, index) => (
                   <>
                     <p
                       key={index}
                       className="text-font-color font-Title text-xl text-primary bg-page-bg p-2 md:p-10 rounded"
                     >
-                      {item?.title}
+                      {item?.name}
                     </p>
                     {
-                      item?.product.map((item, index) => (
+                      item?.menus?.map((item, index) => (
                         <FoodCard key={index} item={item} />
                       ))
                     }
@@ -156,8 +71,8 @@ export default function Menu() {
                 ))}
               </TabPanel>
             ))}
-          </TabsBody>
-        </Tabs>
+          </TabsBody> 
+        </Tabs> 
       </div>
       <BottomTab />
     </div>

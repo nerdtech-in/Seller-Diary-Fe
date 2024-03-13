@@ -3,11 +3,11 @@ import { useNavigate } from 'react-router-dom'
 import { baseURL } from '../Helper/Helper';
 import { useDispatch } from 'react-redux';
 
-export default function FoodCard({
+export default function CartCard({
     item,
 }) {
     const navigate = useNavigate();
-    const [count, setCount] = React.useState(0)
+    const [count, setCount] = React.useState(item?.quantity)
     const dispatch = useDispatch();
     return (
         <div
@@ -17,18 +17,8 @@ export default function FoodCard({
                 className='flex w-full justify-between items-center'>
                 <img
                     src={baseURL + item.icon}
-                    onClick={() => {
-                        navigate('/info', {
-                            state: item
-                        })
-                    }}
                     className='h-[60px] w-[60px] rounded-full ' />
                 <div
-                    onClick={() => {
-                        navigate('/info', {
-                            state: item
-                        })
-                    }}
                     className=' flex items-start flex-col justify-evenly w-[60%]'>
                     <p
                         className="text-font-color text-base tracking-widest text-black bg-page-bg px-2 py-[1px] md:p-10 rounded"
@@ -89,23 +79,6 @@ export default function FoodCard({
                             </p>
                         </button>
                     </div>
-
-                    <button
-                        onClick={() => {
-                            item['quantity'] = count
-                            dispatch({
-                                type: "ADD_TO_CART",
-                                payload: item
-                            })
-                        }}
-                        className='bg-primary rounded-lg '
-                    >
-                        <p
-                            className='text-white text-xs self-center font-Title'
-                        >
-                            ADD +
-                        </p>
-                    </button>
                 </div>
             </div>
         </div>

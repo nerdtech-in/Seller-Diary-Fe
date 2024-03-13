@@ -13,7 +13,7 @@ export default function Index() {
   return (
     <Routes>
       <Route path='/' element={<Home />} />
-      <Route path='/menu' element={<Menu />} />
+      <Route path='/menu/:franchise/:outlet/:table' element={<Menu />} />
       <Route path='/orders' element={<Orders />} />
       <Route path='/details' element={<Details />} />
       <Route path='/bill' element={<Bill />} />

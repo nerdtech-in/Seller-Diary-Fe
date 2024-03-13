@@ -1,22 +1,15 @@
 import React from 'react'
-import FingerprintJS from '@fingerprintjs/fingerprintjs';
+import { useDispatch } from 'react-redux'
+import { RegisterAccess } from '../Store/actions';
 export default function Details() {
-    const [fpHash, setFpHash] = React.useState('');
-    React.useEffect(() => {
-        const setFp = async () => {
-            const fp = await FingerprintJS.load();
-            const { visitorId } = await fp.get();
-            setFpHash(visitorId);
-        };
-        setFp();
-    }, []);
-    console.log(fpHash)
     const [data, setData] = React.useState({
         name: '',
         phone: ''
     })
     const [check, setCheck] = React.useState(false)
+    const [loading, setLoading] = React.useState(false)
 
+    const dispatch = useDispatch();
     return (
         <div
             className='flex flex-col  justify-center items-center'
@@ -34,7 +27,8 @@ export default function Details() {
                 <input
                     placeholder='Your Name'
                     type='text'
-                    onClick={(e) => {
+                    value={data?.name}
+                    onChange={(e) => {
                         setData({ ...data, name: e.target.value })
                     }}
                     className='border-2 w-[88%] pl-3 py-3  font-Raleway rounded-lg'
@@ -42,7 +36,8 @@ export default function Details() {
                 <input
                     placeholder='Your Mobile Number'
                     type='number'
-                    onClick={(e) => {
+                    value={data.phone}
+                    onChange={(e) => {
                         setData({ ...data, phone: e.target.value })
                     }}
                     className='border-2 w-[88%] pl-3 py-3 font-Raleway rounded-lg'
@@ -62,9 +57,17 @@ export default function Details() {
                     </p>
                 </div>
                 <button
-                    disabled={check}
+                    disabled={!check}
+                    onClick={()=>{
+                        dispatch(RegisterAccess(data,setLoading))
+                    }}
                     className={`${check ? `bg-primary` : `bg-primary2`} w-[88%] text-white font-Raleway text-lg font-medium tracking-wider py-3 rounded-lg`}>
-                    Confirm
+                    {
+                        loading?
+                        'Loading'
+                        :
+                        'Confirm'
+                    }
                 </button>
             </div>
         </div>
