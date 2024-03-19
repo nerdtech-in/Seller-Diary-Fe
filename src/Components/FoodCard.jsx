@@ -101,7 +101,7 @@ export default function FoodCard({
                         className='bg-primary rounded-lg '
                     >
                         <p
-                            className='text-white text-xs self-center font-Title'
+                            className='text-white text-[8px] py-[2px] font-bold self-center font-Raleway'
                         >
                             ADD +
                         </p>
