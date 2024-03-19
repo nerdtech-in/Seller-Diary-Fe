@@ -5,7 +5,8 @@ const initialState = {
     outlet: {},
     access: null,
     cart: [],
-    visitorId: null
+    visitorId: null,
+    orderHistory: []
 }
 
 export default (state = initialState, action) => {
@@ -24,6 +25,11 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 visitorId: action.payload,
+            };
+        case "ORDER":
+            return {
+                ...state,
+                orderHistory: action.payload,
             };
         case "USER":
             return {

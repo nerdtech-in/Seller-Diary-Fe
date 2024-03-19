@@ -6,10 +6,10 @@ export default function Header({
     title
 }) {
     const navigate = useNavigate()
-    const cart = useSelector(state=>state.Reducers.cart)
+    const cart = useSelector(state => state.Reducers.cart)
     return (
         <div
-            className='h-[8%] w-full bg-white  py-3 flex justify-around items-center sticky top-0'
+            className='h-[8%] w-full bg-white  py-3 flex justify-around items-center sticky top-0 z-50'
         >
             <div
                 className='h-[30px] w-[30px]'
@@ -18,9 +18,9 @@ export default function Header({
                 className='text-2xl  tracking-widest font-Title font-black  text-black '
             >{title}</p>
             <div className='flex'>
-                <p
-                    className='text-[10px] flex justify-center items-center bg-primary rounded-full h-[15px] w-[15px] font-Raleway font-black  text-white '
-                >{cart?.length}</p>
+                <div
+                    className='text-[10px] flex justify-center items-center bg-primary rounded-full h-[15px] w-[15px] font-Title font-black  text-white '
+                ><p>{cart?.length}</p></div>
                 <BsBag
                     onClick={() => {
                         navigate('/cart')

@@ -1,9 +1,9 @@
 import axios from 'axios';
 import { useSelector } from 'react-redux';
-export const baseURL = 'http://127.0.0.1:8000'
+export const baseURL = 'http://192.168.29.29:8000'
 let headers = {};
 const axiosIns = axios.create({
-    baseURL: 'http://127.0.0.1:8000',
+    baseURL: 'http://192.168.29.29:8000',
     headers,
 });
 axiosIns.interceptors.request.use(

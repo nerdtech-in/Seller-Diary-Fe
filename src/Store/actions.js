@@ -75,9 +75,21 @@ export const updateCartAction = (data) => {
     }
   }
 
-export const getOrders = () => {
+export const getMyOrders = (token,setLoading) => {
     return async dispatch => {
-
+        await axios.get(baseURL + "/my-order-history/", {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then((res) => {
+            dispatch({
+                type: 'ORDER',
+                payload: res.data[0]?.kot,
+            })
+            setLoading(false);
+        }).catch((err) => {
+            setLoading(false);
+        })
     }
 }
 

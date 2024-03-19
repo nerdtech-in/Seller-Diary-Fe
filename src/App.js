@@ -18,7 +18,7 @@ export default function App() {
       className="h-screen w-screen bg-white"
     >
       {
-        access != null ? <Index /> : <Auth />
+        access == null ? <Index /> : <Auth />
       }
     </div>
   )
