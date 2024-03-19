@@ -8,7 +8,6 @@ export default function BottomTab() {
     const location = useLocation()
     const navigate = useNavigate()
     const outlet = useSelector(state => state.Reducers.outlet)
-    console.log(outlet)
     return (
         <div
             className={`fixed transition-all lg:hidden font-Title bg-white bottom-0 w-full h-[11.5%] border-t-[1px] flex justify-evenly z-50 items-center`}

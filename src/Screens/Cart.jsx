@@ -13,7 +13,6 @@ export default function Cart() {
     const outlet = useSelector(state => state.Reducers.outlet)
     const [loaidng,setLoading] = React.useState(false)
     const dispatch = useDispatch()
-    console.log(cart);
     function getTotal(cart){
         let sum=0;
         cart.map((item,index)=>{
@@ -43,7 +42,6 @@ export default function Cart() {
                             <CartCard key={index} item={item} />
                         ))
                     }
-
                 </div>
             </div>
             <div

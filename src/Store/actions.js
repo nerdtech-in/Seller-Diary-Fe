@@ -24,7 +24,6 @@ export const getAccess = (setLoading) => {
 
 export const RegisterAccess = (data, setLoading) => {
     setLoading(true);
-
     return async dispatch => {
         const fp = await FingerprintJS.load();
         const { visitorId } = await fp.get();
@@ -111,7 +110,6 @@ export const sendOrder = (outlet,cart,setLoading,token,navigate) => {
                 Authorization: `Bearer ${token}`
             }
         }).then((res) => {
-            console.log(res.data)
             dispatch({
                 type: 'EMPTY_CART',
                 payload: [],

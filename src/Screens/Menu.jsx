@@ -13,7 +13,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getMenu } from '../Store/actions';
 import { useLocation } from 'react-router-dom';
 export default function Menu() {
-  const [activeTab, setActiveTab] = React.useState('FastFood');
+  const [activeTab, setActiveTab] = React.useState('Kabhi-Kabhi');
   const [loading,setLoading] = React.useState(false)
   const [data,setData] =React.useState([])
   const path = useLocation()

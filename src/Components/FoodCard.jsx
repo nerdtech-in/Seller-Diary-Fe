@@ -11,7 +11,7 @@ export default function FoodCard({
     const dispatch = useDispatch();
     return (
         <div
-            className='w-full mt-2 py-2 px-2 rounded-md font-Title '
+            className='w-full mt-2 py-2 px-2 rounded-md font-Raleway '
         >
             <div
                 className='flex w-full justify-between items-center'>
