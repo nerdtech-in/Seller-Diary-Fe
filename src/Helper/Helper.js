@@ -1,9 +1,9 @@
 import axios from 'axios';
 import { useSelector } from 'react-redux';
-export const baseURL = 'http://192.168.29.251:8000'
+export const baseURL = 'https://api.techrest.in'
 let headers = {};
 const axiosIns = axios.create({
-    baseURL: 'http://192.168.29.251:8000',
+    baseURL: 'https://api.techrest.in',
     headers,
 });
 axiosIns.interceptors.request.use(
