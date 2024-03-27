@@ -4,12 +4,14 @@ import BottomTab from '../Components/BottomTab';
 import PaymentCard from '../Components/PaymentCard';
 import { useDispatch, useSelector } from 'react-redux';
 import { getMyOrders } from '../Store/actions';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Bill() {
     const order = useSelector(state => state.Reducers.orderHistory)
     const token = useSelector(state => state.Reducers.access)
     const [loading, setLoading] = React.useState(false)
+    const navigate =  useNavigate()
     const dispatch = useDispatch()
     React.useEffect(() => {
         dispatch(getMyOrders(token, setLoading))
@@ -26,7 +28,7 @@ export default function Bill() {
     }
     return (
         <div>
-            <Header title={"Paynow"} />
+            <Header title={"Billing"} />
             <div className='p-4'
             >
                 {
@@ -45,6 +47,11 @@ export default function Bill() {
                 </div>
                 <button
                     onClick={() => {
+                        navigate('/paynow',{
+                            state:{
+                                amt:getTotalAmount()
+                            }
+                        })
                         // dispatch(sendOrder(outlet,cart,setLoading,access,navigate))
                     }}
                     className=' bg-primary px-8 rounded-md py-2 text-white font-black tracking-widest'>

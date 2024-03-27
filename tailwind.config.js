@@ -7,8 +7,8 @@ module.exports = withMT({
   theme: {
     extend: {
       fontFamily: {
-        Raleway: "Comfortaa",
-        Title:"title"
+        Raleway: "Poppins",
+        Title:"Poppins"
       },
       colors: {
         primary: "#ff5b54",

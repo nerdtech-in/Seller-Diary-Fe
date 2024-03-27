@@ -69,7 +69,7 @@ export default function BottomTab() {
                 />
                 <p
                     className={`${location?.pathname === '/bill' ? `text-primary font-semibold` : `text-icon`} text-sm text-opacity-80 font-Title`}>
-                    Paynow
+                    Billing
                 </p>
             </button>
         </div>
